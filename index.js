@@ -9,11 +9,28 @@ const handleSubmit = function(ev) {
 
   const users = document.querySelector('#users')
 
-  const p = document.createElement('p')
-  p.textContent = `${userName}, ${age}`
-  p.style.backgroundColor = favoriteColor
+  const list = document.createElement('ul')
 
-  users.appendChild(p)
+  const nameItem = document.createElement('li')
+  nameItem.textContent = `Name: ${userName}`
+
+  const ageItem = document.createElement('li')
+  ageItem.textContent = `Age: ${age}`
+
+  const colorItem = document.createElement('li')
+  colorItem.textContent = 'Favorite Color'
+
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = favoriteColor
+  colorItem.appendChild(colorDiv)
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
+
+  list.appendChild(nameItem)
+  list.appendChild(ageItem)
+  list.appendChild(colorItem)
+
+  users.appendChild(list)
 
   form.reset()
   form.userName.focus()
