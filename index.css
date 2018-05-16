@@ -1,5 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
 body {
-    font-family: 'Times New Roman', Times, serif;
-    background-color: rgb(255, 192, 241);
+    font-family: 'Julius Sans One', sans-serif;
+    background-color: rgb(255, 192, 216);
   }
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+#userForm {
+  background-color: rgb(255, 192, 216);
+  padding: 1rem;
+  border: 3rem solid honeydew;
+}
+
+dl li {
+  list-style: none;
+  margin-top: 1rem;
+}
+
 
