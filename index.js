@@ -3,7 +3,7 @@ const form = document.querySelector('form#userForm')
 function renderColor(color) {
   const colorDiv = document.createElement('div')
   colorDiv.style.backgroundColor = color
-  colorDiv.style.width = '6rem'
+  colorDiv.style.width = '8rem'
   colorDiv.style.height = '3rem'
 
   return colorDiv
@@ -11,7 +11,12 @@ function renderColor(color) {
 
 function renderListItem(label, value) {
   const item = document.createElement('li')
-  item.textContent = `${label}: ${value}`
+  item.textContent = `${label}: `
+  try {
+    item.appendChild(value)
+  } catch(e) {
+    item.textContent += value
+  }
   return item
 }
 
@@ -20,20 +25,15 @@ const handleSubmit = function(ev) {
   const form = ev.target
   const userName = form.userName.value
   const age = form.age.value
-  const favoriteColor = form.favoriteColor.value
+  const favoriteColor = renderColor(form.favoriteColor.value)
 
   const users = document.querySelector('#users')
 
   const list = document.createElement('ul')
 
-
-  const colorItem = document.createElement('li')
-  colorItem.textContent = 'Favorite Color: '
-  colorItem.appendChild(renderColor(favoriteColor))
-
   list.appendChild(renderListItem('Name', userName))
   list.appendChild(renderListItem('Age', age))
-  list.appendChild(colorItem)
+  list.appendChild(renderListItem('Favorite Color', favoriteColor))
 
   users.appendChild(list)
 
